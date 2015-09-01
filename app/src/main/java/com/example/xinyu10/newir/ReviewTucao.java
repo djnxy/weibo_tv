@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
 import java.util.List;
@@ -21,6 +23,7 @@ public class ReviewTucao extends Fragment {
 
     int startX = 0;
     private static final int MOVEDISTANCE = 5;
+    private static final int ANIMATIONDURATION = 300;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,9 +47,9 @@ public class ReviewTucao extends Fragment {
                         break;
                     case MotionEvent.ACTION_UP:
                         int endX = (int) event.getX();
-                        if ( endX - startX > MOVEDISTANCE && turnRight()) {
+                        if ( endX - startX > MOVEDISTANCE && turnLeft()) {
                             displayTags();
-                        }else if(startX - endX > MOVEDISTANCE && turnLeft()){
+                        }else if(startX - endX > MOVEDISTANCE && turnRight()){
                             displayTags();
                         }
                         break;
@@ -74,6 +77,13 @@ public class ReviewTucao extends Fragment {
     private boolean turnLeft(){
         if(pageIndex > 0){
             pageIndex--;
+            Animation translateAnimation;
+            for(int i=0;i<((ViewGroup)imageView).getChildCount();i++){
+                View tag = ((ViewGroup)imageView).getChildAt(i);
+                translateAnimation = new TranslateAnimation(0,imageView.getWidth(),0,0);
+                translateAnimation.setDuration(ANIMATIONDURATION);
+                tag.startAnimation(translateAnimation);
+            }
             return true;
         }else{
             return false;
@@ -83,6 +93,13 @@ public class ReviewTucao extends Fragment {
     private boolean turnRight(){
         if(pageIndex < TucaoImages.getOnShowSize(imageIndex)-1){
             pageIndex++;
+            Animation translateAnimation;
+            for(int i=0;i<((ViewGroup)imageView).getChildCount();i++){
+                View tag = ((ViewGroup)imageView).getChildAt(i);
+                translateAnimation = new TranslateAnimation(0,-imageView.getWidth(),0,0);
+                translateAnimation.setDuration(ANIMATIONDURATION);
+                tag.startAnimation(translateAnimation);
+            }
             return true;
         }else{
             return false;
@@ -102,7 +119,7 @@ public class ReviewTucao extends Fragment {
 
     public void initTucao(int tucao_index){
         imageIndex = tucao_index;
-        pageIndex = TucaoImages.getOnShowSize(tucao_index)-1;
+        pageIndex = 0;
     }
 
 }
