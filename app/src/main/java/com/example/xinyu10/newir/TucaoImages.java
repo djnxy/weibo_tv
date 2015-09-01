@@ -46,11 +46,19 @@ public class TucaoImages {
      }
 
      static public List<Map<String,Object>> getLatestOnShow(int img_index){
-          return onShowImages.get(img_index).get(onShowImages.get(img_index).size()-1);
+          return onShowImages.get(img_index).get(onShowImages.get(img_index).size() - 1);
      }
 
      static public List<List<Map<String,Object>>> getAllOnShow(int img_index){
           return onShowImages.get(img_index);
+     }
+
+     static public List<Map<String,Object>> getShowByIndex(int img_index,int index){
+          return onShowImages.get(img_index).get(index);
+     }
+
+     static public int getOnShowSize(int img_index){
+          return onShowImages.get(img_index).size();
      }
 
 }

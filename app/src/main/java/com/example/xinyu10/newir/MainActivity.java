@@ -28,6 +28,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private TucaoInter tucaoInter;
     private Tucao tucao;
     private TucaoImage tucaoImage;
+    private ReviewTucao reviewTucao;
 
     private RelativeLayout feed_layout;
     private RelativeLayout radar_layout;
@@ -72,6 +73,23 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             transaction.show(radar);
         }
         transaction.commit();
+    }
+
+    public void reviewTucao(int tucao_index) {
+        FragmentTransaction transaction = fManager.beginTransaction();
+        hideFragments(transaction);
+        if (reviewTucao == null) {
+            reviewTucao = new ReviewTucao();
+            transaction.add(R.id.content, reviewTucao);
+        } else {
+            transaction.show(reviewTucao);
+        }
+        transaction.commit();
+        reviewTucao.initTucao(tucao_index);
+    }
+
+    public void backFromReviewTucao(View view){
+        setChioceItem(2);
     }
 
     public void finishTucao(View view){
@@ -259,6 +277,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         if(tucaoImage != null) {
             transaction.remove(tucaoImage);
             tucaoImage = null;
+        }
+        if(reviewTucao != null){
+            transaction.remove(reviewTucao);
+            reviewTucao = null;
         }
     }
 
