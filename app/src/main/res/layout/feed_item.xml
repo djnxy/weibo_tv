@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+
+
+    <ImageView android:id="@+id/item_feed_header"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:src="@drawable/feed_header" android:adjustViewBounds="true" />
+
+    <TextView
+        android:id="@+id/item_feed"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/item_feed_header"
+        android:layout_margin="5dp"></TextView>
+
+    <ImageView android:id="@+id/item_feed_footer"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:src="@drawable/feed_footer" android:adjustViewBounds="true"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/item_other" />
+
+    <ImageView android:id="@+id/item_other"
+        android:layout_width="81dp" android:layout_height="31dp"
+        android:src="@drawable/other" android:adjustViewBounds="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentLeft="false"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/item_feed"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
+
+    <ImageView android:id="@+id/item_button"
+        android:layout_width="81dp" android:layout_height="31dp"
+        android:src="@drawable/button" android:adjustViewBounds="true"
+        android:layout_alignParentRight="false"
+        android:layout_toRightOf="@+id/item_other"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/item_feed" />
+
+</RelativeLayout>
