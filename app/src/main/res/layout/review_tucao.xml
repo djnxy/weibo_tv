@@ -5,11 +5,23 @@
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="81dp"
+        android:layout_height="31dp"
         android:text="back"
         android:id="@+id/back_tucao"
-        android:onClick="backFromReviewTucao" />
+        android:onClick="backFromReviewTucao"
+        android:layout_margin="5dp"
+        android:background="#FFFFFF" />
+
+    <ImageButton
+        android:layout_width="81dp"
+        android:layout_height="31dp"
+        android:id="@+id/tucao_button_review"
+        android:adjustViewBounds="true"
+        android:background="@drawable/tucao_button"
+        android:layout_margin="5dp"
+        android:onClick="tucaoReviewButton"
+        android:layout_alignParentRight="true" />
 
     <RelativeLayout
         android:layout_width="wrap_content"

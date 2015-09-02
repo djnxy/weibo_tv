@@ -106,7 +106,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             TucaoImages.pushOnShow(tucao_img,list);
             tucaoInter.addItem();
         }
-        setChioceItem(2);
+        if(tucaoImage.isFromReview()){
+            tucaoImage.resetReviewFlag();
+            reviewTucao(tucao_img);
+            reviewTucao.setlatestTucao();
+        }else{
+            setChioceItem(2);
+        }
     }
 
     public void onTucaoButtonClick(View view){
@@ -131,6 +137,21 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             tucaoImage.initTucaoImage();
             transaction.show(tucaoImage);
         }
+        transaction.commit();
+    }
+
+    public void tucaoReviewButton(View view){
+        FragmentTransaction transaction = fManager.beginTransaction();
+        TucaoImages.setSelected_img_by_value(reviewTucao.getCurentimage());
+        hideFragments(transaction);
+        if (tucaoImage == null) {
+            tucaoImage = new TucaoImage();
+            transaction.add(R.id.content, tucaoImage);
+        } else {
+            tucaoImage.initTucaoImage();
+            transaction.show(tucaoImage);
+        }
+        tucaoImage.setReviewFlag();
         transaction.commit();
     }
 

@@ -23,7 +23,7 @@ public class ReviewTucao extends Fragment {
 
     int startX = 0;
     private static final int MOVEDISTANCE = 5;
-    private static final int ANIMATIONDURATION = 300;
+    private static final int ANIMATIONDURATION = 150;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -120,6 +120,14 @@ public class ReviewTucao extends Fragment {
     public void initTucao(int tucao_index){
         imageIndex = tucao_index;
         pageIndex = 0;
+    }
+
+    public void setlatestTucao(){
+        pageIndex = TucaoImages.getOnShowSize(imageIndex)-1;
+    }
+
+    public int getCurentimage(){
+        return imageIndex;
     }
 
 }

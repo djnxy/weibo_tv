@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="false"
         android:layout_alignParentEnd="false"
         android:layout_alignParentTop="false"
-        android:layout_below="@+id/item_other" />
+        android:layout_below="@+id/item_button" />
 
     <ImageView android:id="@+id/item_other"
         android:layout_width="81dp" android:layout_height="31dp"
@@ -32,7 +32,8 @@
         android:layout_margin="10dp"
         android:layout_below="@+id/item_feed"
         android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="false"
+        android:visibility="gone" />
 
     <ImageView android:id="@+id/item_button"
         android:layout_width="81dp" android:layout_height="31dp"

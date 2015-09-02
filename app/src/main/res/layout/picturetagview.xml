@@ -20,7 +20,8 @@
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:alpha="0.5" />
 
         <EditText
             android:id="@+id/etPictureTagLabel"
@@ -35,7 +36,8 @@
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:textSize="12dp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:alpha="0.5" />
     </RelativeLayout>
 
 </LinearLayout>

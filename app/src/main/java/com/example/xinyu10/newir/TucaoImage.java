@@ -21,10 +21,11 @@ public class TucaoImage extends Fragment {
 
     private View thisView;
     private static final int CLICKRANGE = 5;
-    int startX = 0;
-    int startY = 0;
-    int startTouchViewLeft = 0;
-    int startTouchViewTop = 0;
+    private int startX = 0;
+    private int startY = 0;
+    private int startTouchViewLeft = 0;
+    private int startTouchViewTop = 0;
+    private int reviewFlag = 0;
     private View touchView,clickView,tucaoView;
 
     private List<Map<String,Object>> tagViews;
@@ -151,5 +152,17 @@ public class TucaoImage extends Fragment {
         if(params.leftMargin<0||(params.leftMargin+touchView.getWidth())>tucaoView.getWidth())params.leftMargin = touchView.getLeft();
         if(params.topMargin<0||(params.topMargin+touchView.getHeight())>tucaoView.getHeight())params.topMargin = touchView.getTop();
         touchView.setLayoutParams(params);
+    }
+
+    public void setReviewFlag(){
+        reviewFlag = 1;
+    }
+
+    public boolean isFromReview(){
+        return reviewFlag == 1;
+    }
+
+    public void resetReviewFlag(){
+        reviewFlag = 0;
     }
 }

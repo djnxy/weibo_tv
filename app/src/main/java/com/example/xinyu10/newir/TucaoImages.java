@@ -20,6 +20,14 @@ public class TucaoImages {
           selected_img = img_index;
      }
 
+    static public void setSelected_img_by_value(int value){
+        for (int i=0;i<tucao_imgs.length;i++){
+            if (tucao_imgs[i] == value){
+                selected_img = i;
+            }
+        }
+    }
+
      static public int getSelected_img(){
           return tucao_imgs[selected_img];
      }
