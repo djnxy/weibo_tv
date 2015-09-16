@@ -115,6 +115,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         }
     }
 
+    public void jumpToTucao(View view){
+        setChioceItem(2);
+    }
+
     public void onTucaoButtonClick(View view){
         FragmentTransaction transaction = fManager.beginTransaction();
         hideFragments(transaction);

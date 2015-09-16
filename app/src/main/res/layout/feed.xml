@@ -3,10 +3,37 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <WebView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/weibo_login"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/feed_pusher"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp" >
+        <EditText
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:id="@+id/edit_feed"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="send"
+            android:id="@+id/push_feed"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+
     <ListView
         android:id="@id/android:list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
     </ListView>
+
 
 </LinearLayout>

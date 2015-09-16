@@ -12,6 +12,10 @@ public class FeedToTV {
         if(index >= 0){
             return new String[]{"6","3","1"};
         }
+        index = feed.indexOf("爸爸去哪");
+        if(index >= 0){
+            return new String[]{"6","3","1"};
+        }
         index = feed.indexOf("中国好声音");
         if(index >= 0){
             return new String[]{"6","3","3"};
