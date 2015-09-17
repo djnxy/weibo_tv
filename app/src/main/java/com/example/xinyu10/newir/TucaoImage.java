@@ -1,6 +1,7 @@
 package com.example.xinyu10.newir;
 
 import android.app.Fragment;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static android.graphics.Bitmap.createBitmap;
 
 /**
  * Created by xinyu10 on 2015/8/24.
@@ -45,6 +48,11 @@ public class TucaoImage extends Fragment {
     public  void onDestroy(){
         super.onDestroy();
         destroyViews();
+    }
+
+    public Bitmap getViewImage(){
+        tucaoView.buildDrawingCache();
+        return createBitmap(tucaoView.getDrawingCache());
     }
 
     public void clearTags(){

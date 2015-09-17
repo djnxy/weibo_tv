@@ -16,12 +16,15 @@
         android:layout_below="@+id/item_feed_header"
         android:layout_margin="5dp"></TextView>
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/item_feed_image"
+        android:layout_below="@+id/item_feed" />
+
     <ImageView android:id="@+id/item_feed_footer"
         android:layout_width="fill_parent" android:layout_height="wrap_content"
         android:src="@drawable/feed_footer" android:adjustViewBounds="true"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentTop="false"
         android:layout_below="@+id/item_button" />
 
     <ImageView android:id="@+id/item_other"
@@ -30,10 +33,11 @@
         android:layout_alignParentRight="false"
         android:layout_alignParentLeft="false"
         android:layout_margin="10dp"
-        android:layout_below="@+id/item_feed"
+        android:layout_below="@+id/item_feed_image"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
-        android:onClick="jumpToTucao" />
+        android:onClick="jumpToTucao"
+        android:visibility="gone" />
 
     <ImageView android:id="@+id/item_button"
         android:layout_width="81dp" android:layout_height="31dp"
@@ -41,6 +45,7 @@
         android:layout_alignParentRight="false"
         android:layout_toRightOf="@+id/item_other"
         android:layout_margin="10dp"
-        android:layout_below="@+id/item_feed" />
+        android:layout_below="@+id/item_feed_image"
+        android:visibility="gone" />
 
 </RelativeLayout>
