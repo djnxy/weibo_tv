@@ -12,6 +12,26 @@
         android:layout_margin="5dp"
         android:onClick="onTucaoButtonClick" />
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:id="@+id/show_selector"
+        android:layout_marginLeft="91dp"
+        android:layout_marginRight="91dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="81dp"
+        android:layout_height="31dp"
+        android:id="@+id/tucao_change_button"
+        android:background="@drawable/button"
+        android:adjustViewBounds="true"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:onClick="onTucaoChangeTV" />
+
     <ListView
         android:id="@+id/tucao_list"
         android:layout_width="match_parent"

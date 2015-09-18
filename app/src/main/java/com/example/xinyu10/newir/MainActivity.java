@@ -63,6 +63,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         callTVSender(nums);
     }
 
+    public void onTucaoChangeTV(View view){
+        String[] nums = {"6","3","1"};
+        callTVSender(nums);
+    }
+
     public void onRadarIndexClick(View view){
         FragmentTransaction transaction = fManager.beginTransaction();
         hideFragments(transaction);

@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +32,11 @@ public class TucaoInter extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tucao_inter, container, false);
         listView = (ListView) view.findViewById(R.id.tucao_list);
+        Spinner spinner = (Spinner) view.findViewById(R.id.show_selector);
+        ArrayAdapter<String> show_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,new String[]{"爸爸去哪儿","中国好声音","快乐大本营"});
+        show_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(show_adapter);
+
         listData = new ArrayList<Map<String, Object>>();
         adapter = new SimpleAdapter(getActivity(), listData,
                 R.layout.tucao_item, new String[]{"tucao_item"}, new int[]{R.id.tucao_item});
