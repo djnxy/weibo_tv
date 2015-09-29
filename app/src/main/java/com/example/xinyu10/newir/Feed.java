@@ -306,7 +306,7 @@ public class Feed extends ListFragment {
                         new DownloadImageTask((ImageView)view)
                                 .execute(data.toString());
                         RelativeLayout.LayoutParams  image_params = (RelativeLayout.LayoutParams)view.getLayoutParams();
-                        image_params.height = RelativeLayout.LayoutParams.WRAP_CONTENT;
+                        image_params.height = 600;
                         view.setLayoutParams(image_params);
                     }else{
                         ((ImageView)view).setImageResource(0);

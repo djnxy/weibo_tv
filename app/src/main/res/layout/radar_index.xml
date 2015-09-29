@@ -3,39 +3,41 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#FFF2F2F2">
 
-        <ImageView
-            android:layout_width="157dp"
-            android:layout_height="40dp"
-            android:id="@+id/imageView3"
-            android:layout_gravity="center"
-            android:src="@drawable/rader_index_comment"
-            android:adjustViewBounds="true"
-            android:layout_marginTop="60dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="雷达"
+            android:id="@+id/textView2"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:layout_margin="5dp"
+            android:gravity="center" />
 
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/imageButton2"
+            android:id="@+id/radar_button"
             android:src="@drawable/radar_button"
             android:background="#00000000"
             android:scaleType="centerCrop"
             android:layout_gravity="center"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:onClick="onRadarIndexClick" />
+            android:onClick="onRadarIndexClick"
+            android:layout_centerInParent="true" />
 
-        <ImageView
-            android:layout_width="79dp"
-            android:layout_height="32dp"
-            android:id="@+id/imageView2"
-            android:layout_gravity="center_horizontal|top"
-            android:src="@drawable/rader_index_header"
-            android:adjustViewBounds="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击雷达，探索极限精彩"
+            android:id="@+id/textView"
+            android:layout_below="@+id/radar_button"
+            android:gravity="center" />
 
         <ImageView
             android:layout_width="fill_parent"
@@ -43,8 +45,9 @@
             android:id="@+id/imageView4"
             android:layout_gravity="center_horizontal|bottom"
             android:src="@drawable/rader_index_footer"
-            android:adjustViewBounds="true" />
-    </FrameLayout>
+            android:adjustViewBounds="true"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
 
 
 </LinearLayout>

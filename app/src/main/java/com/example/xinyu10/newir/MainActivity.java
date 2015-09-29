@@ -132,6 +132,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             tucao = new Tucao();
             transaction.add(R.id.content, tucao);
         } else {
+            tucao.resetItems();
             transaction.show(tucao);
         }
         transaction.commit();
@@ -275,6 +276,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 if (tucaoInter == null) {
                     // 如果feed为空，则创建一个并添加到界面上
                     tucaoInter = new TucaoInter();
+                    TucaoImages.resetImagesPool();
                     transaction.add(R.id.content, tucaoInter);
                 } else {
                     // 如果MessageFragment不为空，则直接将它显示出来

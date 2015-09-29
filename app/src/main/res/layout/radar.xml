@@ -4,40 +4,72 @@
     android:layout_height="match_parent">
 
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/frameLayout"
+        android:id="@+id/radar_container"
         android:nestedScrollingEnabled="false"
         android:background="#FFF2F2F2">
 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_gravity="center_horizontal|top"
-            android:adjustViewBounds="true"
-            android:src="@drawable/rader_header" />
+        <!--<ImageView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_gravity="center_horizontal|top"-->
+            <!--android:adjustViewBounds="true"-->
+            <!--android:src="@drawable/rader_header" />-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="电视雷达，连接无限可能"
+            android:id="@+id/radar_index_header"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#717171"
+            android:background="@drawable/bolder_below" />
 
         <ImageView
             android:layout_width="167dp"
-            android:layout_height="145dp"
-            android:id="@+id/imageView5"
+            android:layout_height="wrap_content"
+            android:id="@+id/radar_icon"
             android:layout_gravity="center"
             android:src="@drawable/radar_icon"
             android:adjustViewBounds="true"
-            android:layout_marginBottom="100dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/radar_index_header"
+            android:layout_marginTop="70dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="未能识别到电视节目"
+            android:id="@+id/radar_bellow_icon"
+            android:gravity="center"
+            android:layout_below="@+id/radar_icon"
+            android:layout_marginTop="5dp"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="今日互动节目单"
+            android:id="@+id/radar_list_header"
+            android:layout_above="@+id/radar_list"
+            android:layout_centerInParent="true"
+            android:textSize="13dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView6"
+            android:id="@+id/radar_list"
             android:layout_gravity="center_horizontal|bottom"
             android:src="@drawable/radar_list"
             android:adjustViewBounds="true"
-            android:layout_marginBottom="50dp" />
+            android:layout_alignParentBottom="true" />
 
         <ImageButton
             android:layout_width="81dp"
@@ -46,14 +78,14 @@
             android:layout_gravity="bottom|right"
             android:src="@drawable/other"
             android:scaleType="centerInside"
-            android:focusable="false"
-            android:cropToPadding="false"
-            android:adjustViewBounds="false"
+            android:adjustViewBounds="true"
             android:nestedScrollingEnabled="false"
             android:background="#00000000"
             android:layout_marginRight="9dp"
             android:onClick="jumpToTucao"
-            android:layout_marginBottom="169dp" />
+            android:layout_marginBottom="83dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true" />
 
         <ImageButton
             android:layout_width="81dp"
@@ -62,15 +94,14 @@
             android:layout_gravity="bottom|right"
             android:src="@drawable/button"
             android:scaleType="centerInside"
-            android:focusable="false"
-            android:cropToPadding="false"
-            android:adjustViewBounds="false"
-            android:nestedScrollingEnabled="false"
+            android:adjustViewBounds="true"
             android:background="#00000000"
             android:layout_marginRight="9dp"
             android:onClick="onSendClick_1"
-            android:layout_marginBottom="133dp" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="118dp" />
 
-    </FrameLayout>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -29,8 +29,7 @@
         android:background="@drawable/button"
         android:adjustViewBounds="true"
         android:layout_margin="5dp"
-        android:layout_alignParentRight="true"
-        android:onClick="onTucaoChangeTV" />
+        android:layout_alignParentRight="true" />
 
     <ListView
         android:id="@+id/tucao_list"

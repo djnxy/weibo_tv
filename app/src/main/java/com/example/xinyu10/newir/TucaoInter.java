@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by xinyu10 on 2015/8/26.
@@ -25,17 +27,32 @@ public class TucaoInter extends Fragment {
     SimpleAdapter adapter;
     private List<Map<String, Object>> listData;
     private ListView listView;
+    private View thisView;
+    private Spinner spinner;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tucao_inter, container, false);
-        listView = (ListView) view.findViewById(R.id.tucao_list);
-        Spinner spinner = (Spinner) view.findViewById(R.id.show_selector);
-        ArrayAdapter<String> show_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,new String[]{"爸爸去哪儿","中国好声音","快乐大本营"});
+        thisView = inflater.inflate(R.layout.tucao_inter, container, false);
+        listView = (ListView) thisView.findViewById(R.id.tucao_list);
+        spinner = (Spinner) thisView.findViewById(R.id.show_selector);
+        ArrayAdapter<String> show_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_dropdown_item,new String[]{"爸爸去哪儿","中国好声音"});
         show_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(show_adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                TucaoImages.setImagesPool(((CheckedTextView) view).getText().toString());
+                resetItems();
+                updateItems();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         listData = new ArrayList<Map<String, Object>>();
         adapter = new SimpleAdapter(getActivity(), listData,
@@ -46,12 +63,19 @@ public class TucaoInter extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((MainActivity)getActivity()).reviewTucao((int) listData.get(position).get("tucao_item"));
+                ((MainActivity) getActivity()).reviewTucao((int) listData.get(position).get("tucao_item"));
                 //Toast.makeText(getActivity(),String.valueOf(TucaoImages.getAllOnShow((int) listData.get(position).get("tucao_item")).size()), Toast.LENGTH_SHORT).show();
             }
         });
 
-        return view;
+        thisView.findViewById(R.id.tucao_change_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).callTVSender(FeedToTV.getTVNum(spinner.getSelectedItem().toString()));
+            }
+        });
+
+        return thisView;
     }
 
     SimpleAdapter.ViewBinder binder = new SimpleAdapter.ViewBinder() {
@@ -70,7 +94,7 @@ public class TucaoInter extends Fragment {
                     new_params.topMargin = ((RelativeLayout.LayoutParams)old_view.getLayoutParams()).topMargin;
                     PictureTagView new_view = new PictureTagView(getActivity(), old_view.getDirection());
                     new_view.setShow(old_view.getText());
-                    ((ViewGroup)view).addView(new_view,new_params);
+                    ((ViewGroup)view).addView(new_view, new_params);
                 }
             }
             return true;
@@ -84,4 +108,17 @@ public class TucaoInter extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
+    public void updateItems(){
+        Set items = TucaoImages.getOnShowImages();
+        for (Object image: items) {
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("tucao_item", (int)image);
+            listData.add(map);
+        }
+    }
+
+    public void resetItems(){
+        listData.clear();
+        adapter.notifyDataSetChanged();
+    }
 }
