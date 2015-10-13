@@ -78,6 +78,10 @@ public class TucaoInter extends Fragment {
         return thisView;
     }
 
+    public String getTucaoTV(){
+        return spinner.getSelectedItem().toString();
+    }
+
     SimpleAdapter.ViewBinder binder = new SimpleAdapter.ViewBinder() {
 
         @Override

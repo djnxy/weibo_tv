@@ -99,7 +99,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
     public void finishTucao(View view){
         int tucao_img = TucaoImages.getSelected_img();
-        feed.pushFeedWithImage("爸爸去哪",tucaoImage.getViewImage());
+        feed.pushFeedWithImage(tucaoInter.getTucaoTV(),tucaoImage.getViewImage());
         tucaoImage.destroyViews();
         List<Map<String,Object>> list = new ArrayList<>(tucaoImage.getTagsInfo().size());
         for (Map<String,Object> map:tucaoImage.getTagsInfo()){
