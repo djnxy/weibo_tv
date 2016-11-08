@@ -37,6 +37,13 @@ public class Tucao extends Fragment {
                 ((MainActivity)getActivity()).selectTucaoImage();
             }
         });
+        view.findViewById(R.id.tucao_gif_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TucaoInter.setTailGif();
+                ((MainActivity) getActivity()).setChoiceItem(2);
+            }
+        });
         adapter = new SimpleAdapter(getActivity(), data,
                 R.layout.tucao_img, new String[]{"tucao_img"}, new int[]{R.id.tucao_img});
         img_list.setAdapter(adapter);

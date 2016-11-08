@@ -11,7 +11,8 @@
         android:id="@+id/back_tucao"
         android:onClick="backFromReviewTucao"
         android:layout_margin="5dp"
-        android:background="#FFFFFF" />
+        android:background="#FFFFFF"
+        android:textSize="@dimen/abc_text_size_button_material" />
 
     <ImageButton
         android:layout_width="81dp"
@@ -31,6 +32,19 @@
         android:layout_centerInParent="true">
 
     </RelativeLayout>
+
+    <Button
+        android:layout_width="81dp"
+        android:layout_height="31dp"
+        android:text="播放"
+        android:id="@+id/tucao_play_voice"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/tucao_button_review"
+        android:visibility="gone"
+        android:background="#FFFFFF"
+        android:textColor="#f73739"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/abc_text_size_button_material" />
 
 
 </RelativeLayout>

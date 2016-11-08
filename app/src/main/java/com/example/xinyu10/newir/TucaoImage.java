@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +34,11 @@ public class TucaoImage extends Fragment {
 
     private List<Map<String,Object>> tagViews;
 
+    private boolean isLongClick=false;
+
+    private String voicePathName = "";
+    private boolean didrecord = false;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +47,37 @@ public class TucaoImage extends Fragment {
         tucaoView = thisView.findViewById(R.id.img_tag);
         tagViews = new ArrayList<>();
         initTucaoImage();
+        int selectImage = TucaoImages.getSelected_img();
+
+        voicePathName = String.valueOf(selectImage)+"_"+(TucaoImages.isOnShow(selectImage)?String.valueOf(TucaoImages.getOnShowSize(selectImage)):"0");
+
+        thisView.findViewById(R.id.tucao_recorder).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                isLongClick = true;
+                didrecord = true;
+                VoiceRecorder.start(voicePathName);
+                //Toast.makeText(getActivity(), voicePathName, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+        thisView.findViewById(R.id.tucao_recorder).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(isLongClick){
+                    switch (event.getAction()){
+                        case MotionEvent.ACTION_UP:
+                            isLongClick = false;
+                            VoiceRecorder.stop();
+                            Toast.makeText(getActivity(), "完成录音", Toast.LENGTH_SHORT).show();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                return false;
+            }
+        });
         return thisView;
     }
 
@@ -57,6 +94,8 @@ public class TucaoImage extends Fragment {
 
     public void clearTags(){
         tagViews.clear();
+        voicePathName = "";
+        didrecord = false;
     }
 
     public void destroyViews() {
@@ -150,6 +189,10 @@ public class TucaoImage extends Fragment {
 
     public List<Map<String,Object>> getTagsInfo(){
         return tagViews;
+    }
+
+    public String getVoicePathName(){
+        return didrecord?voicePathName:"";
     }
 
     private void moveView(int x,int y){

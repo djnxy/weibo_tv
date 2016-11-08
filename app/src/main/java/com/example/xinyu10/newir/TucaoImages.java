@@ -18,9 +18,13 @@ public class TucaoImages {
 
     static public int selected_img = 0;
 
-    static private Map<Integer,List<List<Map<String,Object>>>> onShowImages;
-    static private Map<Integer,List<List<Map<String,Object>>>> babaShows = new HashMap<>();
-    static private Map<Integer,List<List<Map<String,Object>>>> voiceShows = new HashMap<>();
+    static private Map<Integer,List<ImageInfo>> onShowImages;
+    static private Map<Integer,List<ImageInfo>> babaShows = new HashMap<>();
+    static private Map<Integer,List<ImageInfo>> voiceShows = new HashMap<>();
+
+//    static private Map<Integer,List<List<Map<String,Object>>>> onShowImages;
+//    static private Map<Integer,List<List<Map<String,Object>>>> babaShows = new HashMap<>();
+//    static private Map<Integer,List<List<Map<String,Object>>>> voiceShows = new HashMap<>();
 
     static public void resetImagesPool(){
         tucao_imgs = babaImages;
@@ -62,12 +66,19 @@ public class TucaoImages {
           return tucao_imgs[res];
      }
 
-     static public void pushOnShow(int img_index,List<Map<String,Object>> tag_data){
+     static public void pushOnShow(int img_index,List<Map<String,Object>> tag_data,String voice_path){
           if(!onShowImages.containsKey(img_index)){
-               onShowImages.put(img_index, new ArrayList<List<Map<String, Object>>>());
+               onShowImages.put(img_index, new ArrayList<ImageInfo>());
           }
-          onShowImages.get(img_index).add(tag_data);
+          onShowImages.get(img_index).add(new ImageInfo(tag_data,voice_path));
      }
+
+//    static public void pushOnShow(int img_index,List<Map<String,Object>> tag_data){
+//        if(!onShowImages.containsKey(img_index)){
+//            onShowImages.put(img_index, new ArrayList<List<Map<String, Object>>>());
+//        }
+//        onShowImages.get(img_index).add(tag_data);
+//    }
 
      static public boolean isOnShow(int img_index){
           return onShowImages.containsKey(img_index);
@@ -78,16 +89,32 @@ public class TucaoImages {
      }
 
      static public List<Map<String,Object>> getLatestOnShow(int img_index){
-          return onShowImages.get(img_index).get(onShowImages.get(img_index).size() - 1);
+        return onShowImages.get(img_index).get(onShowImages.get(img_index).size() - 1).getImageList();
      }
 
-     static public List<List<Map<String,Object>>> getAllOnShow(int img_index){
+//    static public List<Map<String,Object>> getLatestOnShow(int img_index){
+//        return onShowImages.get(img_index).get(onShowImages.get(img_index).size() - 1);
+//    }
+
+     static public List<ImageInfo> getAllOnShow(int img_index){
           return onShowImages.get(img_index);
      }
 
+//    static public List<List<Map<String,Object>>> getAllOnShow(int img_index){
+//        return onShowImages.get(img_index);
+//    }
+
      static public List<Map<String,Object>> getShowByIndex(int img_index,int index){
-          return onShowImages.get(img_index).get(index);
+          return onShowImages.get(img_index).get(index).getImageList();
      }
+
+    static public String getVoiceByIndex(int img_index,int index){
+        return onShowImages.get(img_index).get(index).getVoicePath();
+    }
+
+//    static public List<Map<String,Object>> getShowByIndex(int img_index,int index){
+//        return onShowImages.get(img_index).get(index);
+//    }
 
      static public int getOnShowSize(int img_index){
           return onShowImages.get(img_index).size();

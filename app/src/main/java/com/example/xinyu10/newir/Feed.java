@@ -69,6 +69,7 @@ public class Feed extends ListFragment {
     private int totalItemCount = 0;
     private long midMax = 0;
     private long midMin = 0;
+    //private String uid = "1971400745";
     private String uid = "5166215594";
     //private String uid = "1401798345";
 

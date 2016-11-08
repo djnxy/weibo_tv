@@ -16,11 +16,11 @@
         android:layout_width="wrap_content"
         android:layout_height="31dp"
         android:id="@+id/show_selector"
-        android:layout_marginLeft="91dp"
-        android:layout_marginRight="91dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/tucao_button"
+        android:layout_toLeftOf="@+id/tucao_yuyue_button" />
 
     <ImageButton
         android:layout_width="81dp"
@@ -31,10 +31,28 @@
         android:layout_margin="5dp"
         android:layout_alignParentRight="true" />
 
+    <ImageButton
+        android:layout_width="81dp"
+        android:layout_height="31dp"
+        android:id="@+id/tucao_yuyue_button"
+        android:background="@drawable/yuyue_button"
+        android:adjustViewBounds="true"
+        android:layout_alignParentRight="false"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/tucao_change_button" />
+
     <ListView
         android:id="@+id/tucao_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tucao_button" />
+        android:layout_below="@+id/tucao_video_view" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tucao_video_view"
+        android:layout_below="@+id/tucao_button"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

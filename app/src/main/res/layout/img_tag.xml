@@ -19,4 +19,17 @@
         android:adjustViewBounds="true"
         android:layout_centerInParent="true">
     </RelativeLayout>
+
+    <Button
+        android:layout_width="81dp"
+        android:layout_height="31dp"
+        android:id="@+id/tucao_recorder"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="按住录音"
+        android:longClickable="false"
+        android:background="#FFFFFF"
+        android:layout_margin="5dp"
+        android:textColor="#f73739"
+        android:textSize="@dimen/abc_text_size_button_material" />
 </RelativeLayout>

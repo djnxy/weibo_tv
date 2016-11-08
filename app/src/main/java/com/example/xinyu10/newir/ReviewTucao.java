@@ -72,6 +72,18 @@ public class ReviewTucao extends Fragment {
             new_view.setShow(old_view.getText());
             ((ViewGroup)imageView).addView(new_view,new_params);
         }
+        if(TucaoImages.getVoiceByIndex(imageIndex, pageIndex) != ""){
+            thisView.findViewById(R.id.tucao_play_voice).setVisibility(View.VISIBLE);
+            thisView.findViewById(R.id.tucao_play_voice).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    VoiceRecorder.play(TucaoImages.getVoiceByIndex(imageIndex, pageIndex));
+                    //Toast.makeText(getActivity(), TucaoImages.getVoiceByIndex(imageIndex, pageIndex), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            thisView.findViewById(R.id.tucao_play_voice).setVisibility(View.INVISIBLE);
+        }
     }
 
     private boolean turnLeft(){

@@ -53,6 +53,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
         fManager = getFragmentManager();
         initViews();
+        VoiceRecorder.init();
 
         IrControl.setInstance(this);
     }
@@ -94,22 +95,25 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     }
 
     public void backFromReviewTucao(View view){
-        setChioceItem(2);
+        setChoiceItem(2);
     }
 
     public void finishTucao(View view){
         int tucao_img = TucaoImages.getSelected_img();
+
+        //debug时关闭
         feed.pushFeedWithImage(tucaoInter.getTucaoTV(),tucaoImage.getViewImage());
         tucaoImage.destroyViews();
         List<Map<String,Object>> list = new ArrayList<>(tucaoImage.getTagsInfo().size());
         for (Map<String,Object> map:tucaoImage.getTagsInfo()){
             list.add(map);
         }
+        String voice_path = tucaoImage.getVoicePathName();
         tucaoImage.clearTags();
         if(TucaoImages.isOnShow(tucao_img)){
-            TucaoImages.pushOnShow(tucao_img,list);
+            TucaoImages.pushOnShow(tucao_img,list,voice_path);
         }else{
-            TucaoImages.pushOnShow(tucao_img,list);
+            TucaoImages.pushOnShow(tucao_img,list,voice_path);
             tucaoInter.addItem();
         }
         if(tucaoImage.isFromReview()){
@@ -117,12 +121,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             reviewTucao(tucao_img);
             reviewTucao.setlatestTucao();
         }else{
-            setChioceItem(2);
+            setChoiceItem(2);
         }
     }
 
     public void jumpToTucao(View view){
-        setChioceItem(2);
+        setChoiceItem(2);
     }
 
     public void onTucaoButtonClick(View view){
@@ -217,7 +221,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         radar_layout.setOnClickListener(this);
         tucao_layout.setOnClickListener(this);
 
-        setChioceItem(0);
+        setChoiceItem(0);
     }
 
     //重写onClick事件
@@ -225,13 +229,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.feed_layout:
-                setChioceItem(0);
+                setChoiceItem(0);
                 break;
             case R.id.radar_layout:
-                setChioceItem(1);
+                setChoiceItem(1);
                 break;
             case R.id.tucao_layout:
-                setChioceItem(2);
+                setChoiceItem(2);
                 break;
             default:
                 break;
@@ -240,7 +244,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     }
 
 
-    public void setChioceItem(int index)
+    public void setChoiceItem(int index)
     {
         FragmentTransaction transaction = fManager.beginTransaction();
         clearChioce();
