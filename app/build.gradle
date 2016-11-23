@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'oauth.signpost:signpost-core:1.2'
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.5.6'
 }

@@ -28,6 +28,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private TucaoInter tucaoInter;
     private Tucao tucao;
     private TucaoImage tucaoImage;
+    private videoTucao videotucao;
     private ReviewTucao reviewTucao;
 
     private RelativeLayout feed_layout;
@@ -151,6 +152,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         } else {
             tucaoImage.initTucaoImage();
             transaction.show(tucaoImage);
+        }
+        transaction.commit();
+    }
+
+    public void selectVideoTucao(String video_name){
+        FragmentTransaction transaction = fManager.beginTransaction();
+        hideFragments(transaction);
+        if (videotucao == null) {
+            videotucao = new videoTucao();
+            videotucao.initVideo(video_name);
+            transaction.add(R.id.content, videotucao);
+        } else {
+            transaction.show(videotucao);
         }
         transaction.commit();
     }
@@ -299,9 +313,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         if (radar != null) {
             transaction.hide(radar);
         }
-        if (tucaoImage != null) {
-            transaction.hide(tucaoImage);
-        }
         if (radarIndex != null) {
             transaction.hide(radarIndex);
         }
@@ -314,6 +325,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         if(tucaoImage != null) {
             transaction.remove(tucaoImage);
             tucaoImage = null;
+        }
+        if(videotucao != null) {
+            transaction.remove(videotucao);
+            videotucao = null;
         }
         if(reviewTucao != null){
             transaction.remove(reviewTucao);
@@ -331,4 +346,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         tucao_layout.setBackgroundColor(backgray);
         tucao_text.setTextColor(gray);
     }
+
+
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+//            View decorView = getWindow().getDecorView();
+//            decorView.setSystemUiVisibility(
+//                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+//                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+//        }
+//    }
 }

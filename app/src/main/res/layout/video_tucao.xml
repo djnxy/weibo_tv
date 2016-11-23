@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_tucao"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+    <Button
+        android:layout_width="81dp"
+        android:layout_height="31dp"
+        android:text="back"
+        android:id="@+id/back_tucao"
+        android:onClick="backFromReviewTucao"
+        android:layout_margin="5dp"
+        android:background="#FFFFFF"
+        android:textSize="@dimen/abc_text_size_button_material" />
+
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/back_tucao"
+        android:layout_centerInParent="true" />
+
+    <master.flame.danmaku.ui.widget.DanmakuView
+        android:id="@+id/danmaku_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/back_tucao"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

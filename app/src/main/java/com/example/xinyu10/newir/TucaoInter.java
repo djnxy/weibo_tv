@@ -70,23 +70,24 @@ public class TucaoInter extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(listData.get(position).containsKey("video_item")){
-                    String uri_s;
-                    switch (getTucaoTV()){
-                        case "爸爸去哪儿":
-                            uri_s = "http://gslb.miaopai.com/stream/ktHk3SUhg-RLW7ez09WD1w__.mp4?yx=&refer=weibo_app";
-                            break;
-                        case "中国好声音":
-                            uri_s = "http://gslb.miaopai.com/stream/XfUq0jk6E73mGVQ0bBEltw__.mp4?yx=&refer=weibo_app";
-                            break;
-                        default:
-                            uri_s = "";
-                            break;
-                    }
-                    Uri uri = Uri.parse(uri_s);
-                    //Uri uri = Uri.parse("http://video.weibo.com/show?fid=1034:95bc31616eb91bf5a698b7e41c3a3165");
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(uri, "video/mp4");
-                    startActivity(intent);
+                    ((MainActivity) getActivity()).selectVideoTucao(getTucaoTV());
+//                    String uri_s;
+//                    switch (getTucaoTV()){
+//                        case "爸爸去哪儿":
+//                            uri_s = "http://gslb.miaopai.com/stream/ktHk3SUhg-RLW7ez09WD1w__.mp4?yx=&refer=weibo_app";
+//                            break;
+//                        case "中国好声音":
+//                            uri_s = "http://gslb.miaopai.com/stream/XfUq0jk6E73mGVQ0bBEltw__.mp4?yx=&refer=weibo_app";
+//                            break;
+//                        default:
+//                            uri_s = "";
+//                            break;
+//                    }
+//                    Uri uri = Uri.parse(uri_s);
+//                    //Uri uri = Uri.parse("http://video.weibo.com/show?fid=1034:95bc31616eb91bf5a698b7e41c3a3165");
+//                    Intent intent = new Intent(Intent.ACTION_VIEW);
+//                    intent.setDataAndType(uri, "video/mp4");
+//                    startActivity(intent);
                 }else if(listData.get(position).containsKey("gif_item")){
                     Uri uri = Uri.parse("http://10.235.24.45:8086/webvr/static/video/baba.mp4");
                     Intent intent = new Intent(Intent.ACTION_VIEW);
