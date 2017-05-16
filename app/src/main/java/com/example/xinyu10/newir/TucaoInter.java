@@ -74,17 +74,17 @@ public class TucaoInter extends Fragment {
 //                    String uri_s;
 //                    switch (getTucaoTV()){
 //                        case "爸爸去哪儿":
-//                            uri_s = "http://gslb.miaopai.com/stream/ktHk3SUhg-RLW7ez09WD1w__.mp4?yx=&refer=weibo_app";
+//                            uri_s = "";
 //                            break;
 //                        case "中国好声音":
-//                            uri_s = "http://gslb.miaopai.com/stream/XfUq0jk6E73mGVQ0bBEltw__.mp4?yx=&refer=weibo_app";
+//                            uri_s = "";
 //                            break;
 //                        default:
 //                            uri_s = "";
 //                            break;
 //                    }
 //                    Uri uri = Uri.parse(uri_s);
-//                    //Uri uri = Uri.parse("http://video.weibo.com/show?fid=1034:95bc31616eb91bf5a698b7e41c3a3165");
+//                    //Uri uri = Uri.parse("");
 //                    Intent intent = new Intent(Intent.ACTION_VIEW);
 //                    intent.setDataAndType(uri, "video/mp4");
 //                    startActivity(intent);
@@ -135,8 +135,8 @@ public class TucaoInter extends Fragment {
 //            @Override
 //            public void onClick(View v) {
 //
-//                //Uri uri = Uri.parse("http://gslb.miaopai.com/stream/ktHk3SUhg-RLW7ez09WD1w__.mp4?yx=&refer=weibo_app");
-//                Uri uri = Uri.parse("http://120.52.41.130/221/53/7/bcloud/100774/ver_00_22-1055486732-avc-200358-aac-32023-233080-7028417-92bdf876cb492409e4826c3386293bd7-1468593070381.mp4?crypt=82aa7f2e208&b=241&nlh=4096&nlt=60&bf=69&p2p=1&video_type=mp4&termid=2&tss=no&platid=2&splatid=206&its=0&qos=5&fcheck=0&amltag=700&mltag=700&proxy=2031258465,2008840771,2008840770&uid=1032296580.rp&keyitem=GOw_33YJAAbXYE-cnQwpfLlv_b2zAkYctFVqe5bsXQpaGNn3T1-vhw..&ntm=1476795000&nkey=dbcc60e9636e14ce26d7214f2a77bbbc&nkey2=8614786b12c64f90d888953ed6efa534&geo=CN-1-9-2&mmsid=60337134&tm=1476776653865&key=cab9daba43d15868221ac4c104fe1d20&payff=0&cuid=100774&vtype=21&dur=233&p1=3&p2=31&p3=310&cf=h5-android&p=101&playid=0&tag=mobile&sign=bcloud_100774&pay=0&ostype=android&hwtype=un&errc=0&gn=1158&vrtmcd=102&buss=700&cips=61.135.152.132");
+//                //Uri uri = Uri.parse("");
+//                Uri uri = Uri.parse("");
 //                //调用系统自带的播放器
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setDataAndType(uri, "video/mp4");
